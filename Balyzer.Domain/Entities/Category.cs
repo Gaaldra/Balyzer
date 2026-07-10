@@ -29,7 +29,7 @@ public class Category
         name = name.Trim();
 
         if (name.Length > MaxNameLength)
-            throw new DomainException($"O nome da categoria não pode possui mais de {MaxNameLength} caracteres.");
+            throw new DomainException($"O nome da categoria não pode possuir mais de {MaxNameLength} caracteres.");
 
         Name = name;
     }

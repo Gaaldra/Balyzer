@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Balyzer.Domain", "Balyzer.D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Balyzer.Tests", "Balyzer.Tests\Balyzer.Tests.csproj", "{51CCB41D-4D17-4BE8-8A50-7E5FE48541E2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Balyzer.Application", "Balyzer.Application\Balyzer.Application.csproj", "{FCCC495E-3AD9-4A52-87F4-F948FB556439}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{51CCB41D-4D17-4BE8-8A50-7E5FE48541E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{51CCB41D-4D17-4BE8-8A50-7E5FE48541E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{51CCB41D-4D17-4BE8-8A50-7E5FE48541E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FCCC495E-3AD9-4A52-87F4-F948FB556439}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCCC495E-3AD9-4A52-87F4-F948FB556439}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCCC495E-3AD9-4A52-87F4-F948FB556439}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCCC495E-3AD9-4A52-87F4-F948FB556439}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -55,7 +55,7 @@ public class TransactionTests
     public void Should_Create_Transaction_With_Round_Amount_To_Two_Decimals()
     {
         var builder = new TransactionBuilder().WithAmount(54.525m);
-        
+
         var transaction = builder.Build();
 
         Assert.Equal(54.53m, transaction.Amount);
@@ -80,7 +80,7 @@ public class TransactionTests
     public void Should_Throw_When_Description_Is_Invalid(string invalidDescription)
     {
         var builder = new TransactionBuilder().WithDescription(invalidDescription);
-        
+
         var action = builder.Build;
 
         var exception =
@@ -109,7 +109,7 @@ public class TransactionTests
     public void Should_Throw_When_Amount_Is_Zero_Or_Negative(decimal invalidAmount)
     {
         var builder = new TransactionBuilder().WithAmount(invalidAmount);
-        
+
         var action = builder.Build;
 
         var exception = Assert.Throws<DomainException>(action);
@@ -121,7 +121,7 @@ public class TransactionTests
     public void Should_Throw_When_Purchase_Date_Is_Default()
     {
         var builder = new TransactionBuilder().WithPurchaseDate(default);
-        
+
         var action = builder.Build;
 
         var exception = Assert.Throws<DomainException>(action);
@@ -146,7 +146,7 @@ public class TransactionTests
     public void Should_Throw_When_Category_Is_Null()
     {
         var builder = new TransactionBuilder().WithCategory(null!);
-        
+
         var action = builder.Build;
 
         var exception = Assert.Throws<DomainException>(action);
@@ -158,7 +158,7 @@ public class TransactionTests
     public void Should_Throw_When_Card_Is_Null()
     {
         var builder = new TransactionBuilder().WithCard(null!);
-        
+
         var action = builder.Build;
 
         var exception = Assert.Throws<DomainException>(action);
@@ -170,7 +170,7 @@ public class TransactionTests
     public void Should_Throw_When_Installment_Is_Null()
     {
         var builder = new TransactionBuilder().WithInstallment(null!);
-        
+
         var action = builder.Build;
 
         var exception = Assert.Throws<DomainException>(action);

@@ -5,14 +5,6 @@ namespace Balyzer.Domain.Entities;
 
 public class Transaction
 {
-    public Guid Id { get; private set; }
-    public DateOnly PurchaseDate { get; private set; }
-    public string Description { get; private set; } = string.Empty;
-    public decimal Amount { get; private set; }
-    public Category Category { get; private set; } = null!;
-    public Card Card { get; private set; } = null!;
-    public Installment Installment { get; private set; } = null!;
-
     public const int DescriptionMaxLength = 150;
 
     protected Transaction()
@@ -38,6 +30,14 @@ public class Transaction
         ChangeInstallment(installment);
     }
 
+    public Guid Id { get; private set; }
+    public DateOnly PurchaseDate { get; private set; }
+    public string Description { get; private set; } = string.Empty;
+    public decimal Amount { get; private set; }
+    public Category Category { get; private set; } = null!;
+    public Card Card { get; private set; } = null!;
+    public Installment Installment { get; private set; } = null!;
+
     private void ChangePurchaseDate(DateOnly purchaseDate)
     {
         if (purchaseDate == default)
@@ -58,7 +58,7 @@ public class Transaction
 
         if (description.Length > DescriptionMaxLength)
             throw new DomainException($"A descrição não pode ser maior que {DescriptionMaxLength} caracteres!");
-        
+
         Description = description;
     }
 

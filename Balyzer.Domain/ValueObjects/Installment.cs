@@ -4,13 +4,6 @@ namespace Balyzer.Domain.ValueObjects;
 
 public record Installment
 {
-    public int Current { get; }
-    public int Total { get; }
-
-    public bool IsSingle => Total == 1;
-    public bool IsLast => Current == Total;
-    public int Remaining => Total - Current;
-
     public Installment(int current, int total)
     {
         if (total <= 0)
@@ -26,5 +19,15 @@ public record Installment
         Total = total;
     }
 
-    public override string ToString() => IsSingle ? "Única" : $"{Current}/{Total}";
-};
+    public int Current { get; }
+    public int Total { get; }
+
+    public bool IsSingle => Total == 1;
+    public bool IsLast => Current == Total;
+    public int Remaining => Total - Current;
+
+    public override string ToString()
+    {
+        return IsSingle ? "Única" : $"{Current}/{Total}";
+    }
+}

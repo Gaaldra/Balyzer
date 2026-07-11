@@ -49,7 +49,7 @@ public class CategoryTests
         var builder = new CategoryBuilder().WithName(inputName);
 
         var category = builder.Build();
-        
+
         Assert.Equal(baseName, category.Name);
     }
 

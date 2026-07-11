@@ -8,7 +8,10 @@ public class CategoryBuilder
 
     private string _name = DefaultName;
 
-    public Category Build() => new(_name);
+    public Category Build()
+    {
+        return new Category(_name);
+    }
 
     public CategoryBuilder WithName(string name)
     {

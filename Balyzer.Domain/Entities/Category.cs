@@ -4,14 +4,10 @@ namespace Balyzer.Domain.Entities;
 
 public class Category
 {
-    public const int MaxNameLength = 100; 
-        
-    public Guid Id { get; private set; }
-    public string Name { get; private set; } = string.Empty;
+    public const int MaxNameLength = 100;
 
     protected Category()
     {
-        
     }
 
     public Category(string name)
@@ -20,6 +16,9 @@ public class Category
 
         ChangeName(name);
     }
+
+    public Guid Id { get; private set; }
+    public string Name { get; private set; } = string.Empty;
 
     private void ChangeName(string name)
     {

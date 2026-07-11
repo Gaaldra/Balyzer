@@ -14,7 +14,7 @@ public class CardTests
 
         var card = builder.Build();
         var guidStr = card.Id.ToString("N");
-        
+
         Assert.Equal('7', guidStr[12]);
         Assert.Equal(CardBuilder.DefaultHolderName, card.HolderName);
         Assert.Equal(CardBuilder.DefaultLastDigits, card.LastDigits);
@@ -25,12 +25,12 @@ public class CardTests
     {
         var holderName = new string('A', Card.MaxHolderNameLength);
         var builder = new CardBuilder().WithHolderName(holderName);
-        
+
         var card = builder.Build();
-        
+
         Assert.Equal(holderName, card.HolderName);
     }
-    
+
     [Theory]
     [InlineData("   João Silva   ", "João Silva")]
     [InlineData("\tJoão Silva\t", "João Silva")]
@@ -40,7 +40,7 @@ public class CardTests
         var builder = new CardBuilder().WithHolderName(inputName);
 
         var card = builder.Build();
-        
+
         Assert.Equal(expectedName, card.HolderName);
     }
 
@@ -52,10 +52,10 @@ public class CardTests
         var builder = new CardBuilder().WithHolderName(inputHolderName);
 
         var card = builder.Build();
-        
+
         Assert.Equal(baseHolderName, card.HolderName);
     }
-    
+
     [Theory]
     [InlineData(" 1234 ", "1234")]
     [InlineData("\t1234\t", "1234")]
@@ -64,7 +64,7 @@ public class CardTests
         var builder = new CardBuilder().WithLastDigits(inputDigits);
 
         var card = builder.Build();
-        
+
         Assert.Equal(expectedDigits, card.LastDigits);
     }
 
@@ -75,10 +75,10 @@ public class CardTests
         var builder = new CardBuilder().WithLastDigits(inputLastDigits);
 
         var card = builder.Build();
-        
+
         Assert.Equal(CardBuilder.DefaultLastDigits, card.LastDigits);
     }
-    
+
     // Validation
     [Theory]
     [InlineData("")]
@@ -91,7 +91,7 @@ public class CardTests
         var action = builder.Build;
 
         var exception = Assert.Throws<DomainException>(action);
-        
+
         Assert.Equal("O titular do cartão é obrigatório.", exception.Message);
     }
 
@@ -104,7 +104,7 @@ public class CardTests
         var action = builder.Build;
 
         var exception = Assert.Throws<DomainException>(action);
-        
+
         Assert.Equal($"O titular não pode possuir mais de {Card.MaxHolderNameLength} caracteres.", exception.Message);
     }
 
@@ -119,7 +119,7 @@ public class CardTests
         var action = builder.Build;
 
         var exception = Assert.Throws<DomainException>(action);
-        
+
         Assert.Equal("Os últimos dígitos do cartão são obrigatórios.", exception.Message);
     }
 
@@ -133,7 +133,7 @@ public class CardTests
         var action = builder.Build;
 
         var exception = Assert.Throws<DomainException>(action);
-        
+
         Assert.Equal("O cartão deve possuir exatamente quatro dígitos.", exception.Message);
     }
 
@@ -150,7 +150,7 @@ public class CardTests
         var action = builder.Build;
 
         var exception = Assert.Throws<DomainException>(action);
-        
+
         Assert.Equal("O cartão deve conter apenas números.", exception.Message);
     }
 }

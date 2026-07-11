@@ -5,18 +5,21 @@ namespace Balyzer.Tests.Builders;
 
 public class TransactionBuilder
 {
-    public static readonly DateOnly DefaultPurchaseDate = new(2025, 5, 14);
     public const string DefaultDescription = "RM Posto Central";
     public const decimal DefaultAmount = 54.52m;
-
-    private DateOnly _purchaseDate = DefaultPurchaseDate;
-    private string _description = DefaultDescription;
+    public static readonly DateOnly DefaultPurchaseDate = new(2025, 5, 14);
     private decimal _amount = DefaultAmount;
-    private Category _category = new CategoryBuilder().Build();
     private Card _card = new CardBuilder().Build();
+    private Category _category = new CategoryBuilder().Build();
+    private string _description = DefaultDescription;
     private Installment _installment = new(1, 1);
 
-    public Transaction Build() => new(_purchaseDate, _description, _amount, _category, _card, _installment);
+    private DateOnly _purchaseDate = DefaultPurchaseDate;
+
+    public Transaction Build()
+    {
+        return new Transaction(_purchaseDate, _description, _amount, _category, _card, _installment);
+    }
 
     public TransactionBuilder WithPurchaseDate(DateOnly purchaseDate)
     {
@@ -35,7 +38,7 @@ public class TransactionBuilder
         _amount = amount;
         return this;
     }
-    
+
     public TransactionBuilder WithCategory(Category category)
     {
         _category = category;

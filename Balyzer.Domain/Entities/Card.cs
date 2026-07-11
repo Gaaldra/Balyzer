@@ -5,13 +5,9 @@ namespace Balyzer.Domain.Entities;
 public class Card
 {
     public const int MaxHolderNameLength = 100;
-    public Guid Id { get; private set; }
-    public string HolderName { get; private set; } = string.Empty;
-    public string LastDigits { get; private set; } = string.Empty;
 
     protected Card()
     {
-        
     }
 
     public Card(string holderName, string lastDigits)
@@ -21,6 +17,10 @@ public class Card
         ChangeHolderName(holderName);
         ChangeLastDigits(lastDigits);
     }
+
+    public Guid Id { get; private set; }
+    public string HolderName { get; private set; } = string.Empty;
+    public string LastDigits { get; private set; } = string.Empty;
 
     private void ChangeHolderName(string holderName)
     {
@@ -41,8 +41,8 @@ public class Card
             throw new DomainException("Os últimos dígitos do cartão são obrigatórios.");
 
         lastDigits = lastDigits.Trim();
-        
-        if(lastDigits.Length != 4)
+
+        if (lastDigits.Length != 4)
             throw new DomainException("O cartão deve possuir exatamente quatro dígitos.");
 
         if (!lastDigits.All(c => c is >= '0' and <= '9'))

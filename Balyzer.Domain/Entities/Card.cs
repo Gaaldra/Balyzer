@@ -45,7 +45,7 @@ public class Card
         if(lastDigits.Length != 4)
             throw new DomainException("O cartão deve possuir exatamente quatro dígitos.");
 
-        if (!lastDigits.All(char.IsDigit))
+        if (!lastDigits.All(c => c is >= '0' and <= '9'))
             throw new DomainException("O cartão deve conter apenas números.");
 
         LastDigits = lastDigits;

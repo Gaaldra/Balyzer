@@ -142,6 +142,7 @@ public class CardTests
     [InlineData("!234")]
     [InlineData("1 34")]
     [InlineData("12\u00A04")]
+    [InlineData("١٢٣٤")]
     public void Should_Throw_When_LastDigits_Contain_Non_Digits(string invalidDigits)
     {
         var builder = new CardBuilder().WithLastDigits(invalidDigits);

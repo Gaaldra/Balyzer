@@ -7,7 +7,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Balyzer.Domain\Balyzer.Domain.csproj" />
+        <ProjectReference Include="..\Balyzer.Domain\Balyzer.Domain.csproj"/>
     </ItemGroup>
 
 </Project>

@@ -12,7 +12,7 @@ public class InstallmentTests
         var builder = new InstallmentBuilder();
 
         var installment = builder.Build();
-        
+
         Assert.Equal(InstallmentBuilder.DefaultCurrent, installment.Current);
         Assert.Equal(InstallmentBuilder.DefaultTotal, installment.Total);
     }
@@ -23,7 +23,7 @@ public class InstallmentTests
         var builder = new InstallmentBuilder();
 
         var installment = builder.Build();
-        
+
         Assert.True(installment.IsSingle);
     }
 
@@ -32,11 +32,10 @@ public class InstallmentTests
     [InlineData(12)]
     public void Should_ReturnFalseForIsSingle_When_TotalIsGreaterThanOne(int total)
     {
-
         var builder = new InstallmentBuilder().WithTotal(total);
 
         var installment = builder.Build();
-        
+
         Assert.False(installment.IsSingle);
     }
 
@@ -48,7 +47,7 @@ public class InstallmentTests
             .WithTotal(5);
 
         var installment = builder.Build();
-        
+
         Assert.True(installment.IsLast);
     }
 
@@ -62,7 +61,7 @@ public class InstallmentTests
             .WithTotal(total);
 
         var installment = builder.Build();
-        
+
         Assert.False(installment.IsLast);
     }
 
@@ -77,10 +76,10 @@ public class InstallmentTests
             .WithTotal(total);
 
         var installment = builder.Build();
-        
+
         Assert.Equal(remaining, installment.Remaining);
     }
-    
+
     [Fact]
     public void Should_ReturnUnicaForToString_When_InstallmentIsSingle()
     {
@@ -89,24 +88,25 @@ public class InstallmentTests
             .WithTotal(1);
 
         var installment = builder.Build();
-        
+
         Assert.Equal("Única", installment.ToString());
     }
 
     [Theory]
     [InlineData(1, 5, "1/5")]
     [InlineData(2, 12, "2/12")]
-    public void Should_ReturnFormattedStringForToString_When_InstallmentIsNotSingle(int current, int total, string expectedResult)
+    public void Should_ReturnFormattedStringForToString_When_InstallmentIsNotSingle(int current, int total,
+        string expectedResult)
     {
         var builder = new InstallmentBuilder()
             .WithCurrent(current)
             .WithTotal(total);
 
         var installment = builder.Build();
-        
+
         Assert.Equal(expectedResult, installment.ToString());
     }
-    
+
     // Validation
     [Theory]
     [InlineData(0)]
@@ -119,7 +119,7 @@ public class InstallmentTests
         var action = builder.Build;
 
         var exception = Assert.Throws<DomainException>(action);
-        
+
         Assert.Equal("O total de parcelas deve ser maior que zero.", exception.Message);
     }
 
@@ -134,7 +134,7 @@ public class InstallmentTests
         var action = builder.Build;
 
         var exception = Assert.Throws<DomainException>(action);
-        
+
         Assert.Equal("O número da parcela deve ser maior que zero.", exception.Message);
     }
 
@@ -148,7 +148,7 @@ public class InstallmentTests
         var action = builder.Build;
 
         var exception = Assert.Throws<DomainException>(action);
-        
+
         Assert.Equal("A parcela atual não pode ser maior que o total de parcelas.", exception.Message);
     }
 }

@@ -6,9 +6,9 @@ public class InstallmentBuilder
 {
     public const int DefaultTotal = 1;
     public const int DefaultCurrent = 1;
+    private int _current = DefaultCurrent;
 
     private int _total = DefaultTotal;
-    private int _current = DefaultCurrent;
 
     public Installment Build()
     {

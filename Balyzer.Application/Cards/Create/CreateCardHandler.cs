@@ -14,7 +14,7 @@ public sealed class CreateCardHandler(ICardRepository cardRepository)
         var card = new Card(command.HolderName, command.LastDigits);
 
         await cardRepository.AddAsync(card, cancellationToken);
-        
+
         return card.Id;
     }
 }

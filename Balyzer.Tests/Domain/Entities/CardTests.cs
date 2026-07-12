@@ -1,6 +1,6 @@
 using Balyzer.Domain.Entities;
 using Balyzer.Domain.Exceptions;
-using Balyzer.Tests.Builders;
+using Balyzer.Tests.Domain.Builders;
 
 namespace Balyzer.Tests.Domain.Entities;
 

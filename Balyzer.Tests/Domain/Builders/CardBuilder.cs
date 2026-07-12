@@ -1,6 +1,6 @@
 using Balyzer.Domain.Entities;
 
-namespace Balyzer.Tests.Builders;
+namespace Balyzer.Tests.Domain.Builders;
 
 public class CardBuilder
 {

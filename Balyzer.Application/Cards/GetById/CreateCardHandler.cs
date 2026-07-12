@@ -3,7 +3,7 @@ using Balyzer.Application.Cards.Common;
 
 namespace Balyzer.Application.Cards.GetById;
 
-public sealed class GetCardByIdHandler(ICardRepository cardRepository)
+public sealed class CreateCardHandler(ICardRepository cardRepository)
 {
     public async Task<CardResponse?> HandleAsync(
         GetCardByIdQuery query,
